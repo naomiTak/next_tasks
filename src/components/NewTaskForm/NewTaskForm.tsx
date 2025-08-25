@@ -34,7 +34,7 @@ return (
                 className='block mt-2  py-1.5 px-2 w-full rouded-md border-0 shadow-sm ring-1 ring-inset ring-gray-300'/>
             </div>
             <SubmitButton />
-            {state.error && (<p className="mt-2 text-red-500 text-sm"></p>)}
+            {state.error && (<p className="mt-2 text-red-500 text-sm">{state.error}</p>)}
         </form>
     </div>
   )

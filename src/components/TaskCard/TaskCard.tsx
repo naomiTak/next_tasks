@@ -1,5 +1,5 @@
 import React from 'react'
-import { TaskDocument } from '@/utils/models/task'
+import { TaskDocument } from '@/models/task'
 import TaskEditButton from './TaskEditButton/TaskEditButton'
 import TaskDeleteButton from './TaskDeleteButton/TaskDeleteButton'
 
