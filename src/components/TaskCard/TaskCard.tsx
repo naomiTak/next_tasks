@@ -1,30 +1,74 @@
+"use client";
+
 import React from 'react'
 import { TaskDocument } from '@/models/task'
 import TaskEditButton from './TaskEditButton/TaskEditButton'
 import TaskDeleteButton from './TaskDeleteButton/TaskDeleteButton'
+import { Draggable } from "@hello-pangea/dnd";
 
 interface TaskCardProps {
     task: TaskDocument;
+    index: number;
 }
-const TaskCard: React.FC<TaskCardProps> = ({ task }) => {
+const TaskCard: React.FC<TaskCardProps> = ({ task, index }) => {
   return (
-    <div className='w-64 h-52 p-4 bg-white rounded-md shadow-md flex flex-col justify-between'>
-        <header>
-            <h1 className='text-lg font-semibold'>{task.title}</h1>
-            <div className='mt-1 text-sm line-clamp-3'>{task.description}</div>
-        </header>
-        <div>
-            <div className='mt-1 text-sm'>{task.dueDate}</div>
-            <div className='flex justify-between items-conter'>
+    <Draggable draggableId={String(task._id)} index={index}>
+      {(provided) => (
+        <div
+          ref={provided.innerRef}
+          {...provided.draggableProps}
+          {...provided.dragHandleProps}
+          className="bg-red-100 p-2 my-2 rounded shadow"
+        >
+          {/* {task.title} */}
+                   <div className='w-64 h-52 p-4 bg-blue-100 rounded-md shadow-md flex flex-col justify-between'>
+         <header>
+             <h1 className='text-lg font-semibold'>{task.title}</h1>
+             <div className='mt-1 text-sm line-clamp-3'>{task.description}</div>
+         </header>
+         <div>
+             <div className='mt-1 text-sm'>{task.dueDate}</div>
+             <div className='flex justify-between items-conter'>
                 <div className={`mt-1 text-sm px-2 py-1 w-24 text-center text-white rounded-full shacow-sm 
                     ${task.isCompleted ? 'bg-green-500' : 'bg-red-500'}  `}>{true ? 'Completed' : 'Incompleted'}</div>
-                <div className='flex gap-4'>
-                    <TaskEditButton  id={task._id}/>
+                 <div className='flex gap-4'>
+                     <TaskEditButton  id={task._id}/>
                     <TaskDeleteButton  id={task._id}/>
                 </div>
             </div>
+         </div>
+     </div>
         </div>
-    </div>
+      )}
+    </Draggable>
+    // <Draggable draggableId={task.id} index={index}>
+    //   {(provided) => (
+    //     <div
+    //       ref={provided.innerRef}
+    //       {...provided.draggableProps}
+    //       {...provided.dragHandleProps}
+    //       className="bg-white p-3 rounded-lg shadow cursor-pointer"
+    //     >
+    //       <div className='w-64 h-52 p-4 bg-white rounded-md shadow-md flex flex-col justify-between'>
+    //     <header>
+    //         <h1 className='text-lg font-semibold'>{task.title}</h1>
+    //         <div className='mt-1 text-sm line-clamp-3'>{task.description}</div>
+    //     </header>
+    //     <div>
+    //         <div className='mt-1 text-sm'>{task.dueDate}</div>
+    //         <div className='flex justify-between items-conter'>
+    //             <div className={`mt-1 text-sm px-2 py-1 w-24 text-center text-white rounded-full shacow-sm 
+    //                 ${task.isCompleted ? 'bg-green-500' : 'bg-red-500'}  `}>{true ? 'Completed' : 'Incompleted'}</div>
+    //             <div className='flex gap-4'>
+    //                 <TaskEditButton  id={task._id}/>
+    //                 <TaskDeleteButton  id={task._id}/>
+    //             </div>
+    //         </div>
+    //     </div>
+    // </div>
+    //     </div>
+    //   )}
+    // </Draggable>
   )
 }
 
