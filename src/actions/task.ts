@@ -34,7 +34,7 @@ export const updateTask = async(id: string, state: FormState, formData: FormData
         description: formData.get("description") as string,
         dueDate: formData.get("dueDate") as string,        
         isCompleted: Boolean(formData.get('isCompleted')),
-        status: 'Todo'
+        status: formData.get("status") as string
         //後でバリデーションを追加
     }
 

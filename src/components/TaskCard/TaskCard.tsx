@@ -5,9 +5,10 @@ import { TaskDocument } from '@/models/task'
 import TaskEditButton from './TaskEditButton/TaskEditButton'
 import TaskDeleteButton from './TaskDeleteButton/TaskDeleteButton'
 import { Draggable } from "@hello-pangea/dnd";
+import { Task } from '@/types/task'
 
 interface TaskCardProps {
-    task: TaskDocument;
+    task: Task;
     index: number;
 }
 const TaskCard: React.FC<TaskCardProps> = ({ task, index }) => {

@@ -4,8 +4,9 @@ import Link from 'next/link'
 import React from 'react'
 import { MdAddTask } from 'react-icons/md'
 import  Board  from '@/components/board/Board'
+import { Task } from '@/types/task'
 
-const getAllTasks = async():Promise<TaskDocument[]> => {
+const getAllTasks = async():Promise<Task[]> => {
   const response = await fetch(`${process.env.API_URL}/tasks`,{
     cache: 'no-store',
   });
@@ -14,7 +15,7 @@ const getAllTasks = async():Promise<TaskDocument[]> => {
     throw new Error();
   }
   const data = await response.json();
-  return data.tasks as TaskDocument[];
+  return data.tasks as Task[];
 };
 
 export default async function MainPage() {
