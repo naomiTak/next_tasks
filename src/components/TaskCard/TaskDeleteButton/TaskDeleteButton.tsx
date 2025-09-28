@@ -2,10 +2,8 @@
 
 import { useEffect, useActionState } from 'react'
 import { FaTrashAlt } from 'react-icons/fa'
-import { useState } from 'react'
-import { TaskDocument } from '@/models/task';
 import { FormState, deleteTask } from "@/actions/task"
-import { useFormState, useFormStatus } from "react-dom"
+import { useFormStatus } from "react-dom"
 
 
 interface TaskDeleteButtonProps {
