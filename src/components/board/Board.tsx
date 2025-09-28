@@ -1,11 +1,11 @@
 "use client";
 
-import { DragDropContext, Droppable, Draggable } from "@hello-pangea/dnd";
+import { DragDropContext } from "@hello-pangea/dnd";
 import Column from "./Column";
-import { TASK_STATUSES, TASK_STATUS_LABELS } from "@/constants/taskStatus";
+import { TASK_STATUSES } from "@/constants/taskStatus";
 import { updateTaskStatus } from "@/actions/task"
 import { DropResult } from "@hello-pangea/dnd";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { Task } from '@/types/task'
 
 

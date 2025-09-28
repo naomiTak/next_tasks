@@ -1,7 +1,6 @@
 "use client";
 
 import React from 'react'
-import { TaskDocument } from '@/models/task'
 import TaskEditButton from './TaskEditButton/TaskEditButton'
 import TaskDeleteButton from './TaskDeleteButton/TaskDeleteButton'
 import { Draggable } from "@hello-pangea/dnd";

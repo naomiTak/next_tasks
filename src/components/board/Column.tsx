@@ -1,7 +1,6 @@
 import { Droppable } from "@hello-pangea/dnd";
 import TaskCard from '@/components/TaskCard/TaskCard';
-import { TaskDocument } from '@/models/task'
-import { TASK_STATUSES, TASK_STATUS_LABELS, TaskStatus } from "@/constants/taskStatus";
+import { TASK_STATUS_LABELS, TaskStatus } from "@/constants/taskStatus";
 import { Task } from '@/types/task'
 
 interface ColumnProps {
