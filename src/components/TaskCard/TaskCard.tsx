@@ -18,7 +18,7 @@ const TaskCard: React.FC<TaskCardProps> = ({ task, index }) => {
           ref={provided.innerRef}
           {...provided.draggableProps}
           {...provided.dragHandleProps}
-          className="p-2 mx-auto my-4 rounded-xl shadow-md flex justify-center w-80 h-52 bg-gray-100"
+          className="p-2 mx-auto my-4 rounded-xl shadow-md flex justify-center w-72 h-48 bg-gray-100"
         >
           {/* {task.title} */}
                    {/* <div className='w-64 h-52 p-4 bg-blue-100 rounded-md shadow-md flex flex-col justify-between'> */}
