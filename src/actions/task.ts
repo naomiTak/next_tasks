@@ -13,7 +13,8 @@ export const createTask = async(state: FormState, formData: FormData) => {
         title: formData.get("title") as string,
         description: formData.get("description") as string,
         dueDate: formData.get("dueDate") as string,        
-        isCompleted: false
+        isCompleted: false,
+        status: 'Todo'
         //後でバリデーションを追加
     }
 
@@ -32,7 +33,8 @@ export const updateTask = async(id: string, state: FormState, formData: FormData
         title: formData.get("title") as string,
         description: formData.get("description") as string,
         dueDate: formData.get("dueDate") as string,        
-        isCompleted: Boolean(formData.get('isCompleted'))
+        isCompleted: Boolean(formData.get('isCompleted')),
+        status: formData.get("status") as string
         //後でバリデーションを追加
     }
 
@@ -42,6 +44,16 @@ export const updateTask = async(id: string, state: FormState, formData: FormData
     }catch(error){
         state.error = "Unable to update the task."
         return state
+    }
+    redirect("/")
+}
+
+export const updateTaskStatus = async(id: string, taskStatus: string) => {
+    try{
+        await connectDb();
+        await TaskModel.updateOne({_id: id}, {status: taskStatus})
+    }catch(error){
+        console.log(error)
     }
     redirect("/")
 }
