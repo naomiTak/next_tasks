@@ -3,18 +3,20 @@
 import { connectDb } from "@/utils/database";
 import { Task, TaskModel } from "../models/task";
 import { redirect } from "next/navigation";
+import { TASK_STATUSES } from "@/constants/taskStatus"
 
 export interface FormState {
     error: string
 }
 
 export const createTask = async(state: FormState, formData: FormData) => {
+    console.log(formData)
     const newTask: Task = {
         title: formData.get("title") as string,
         description: formData.get("description") as string,
         dueDate: formData.get("dueDate") as string,        
         isCompleted: false,
-        status: 'Todo'
+        status: TASK_STATUSES.TODO
         //後でバリデーションを追加
     }
 
