@@ -5,10 +5,11 @@ import { TaskDocument } from '@/models/task';
 import { FormState, updateTask } from "@/actions/task"
 import { useFormState, useFormStatus } from "react-dom"
 import { TASK_STATUSES, TASK_STATUS_LABELS, TaskStatus } from "@/constants/taskStatus";
+import { Task } from '@/types/task'
 
 
 interface EditTaskFormProps {
-    task: TaskDocument;
+    task: Task;
 }
 
 const EditTaskForm: React.FC<EditTaskFormProps> = ({ task }) => {
