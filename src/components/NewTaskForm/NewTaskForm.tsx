@@ -2,7 +2,6 @@
 
 import { useActionState } from 'react'
 import { FormState, createTask } from "@/actions/task"
-import { useFormStatus } from "react-dom"
 
 const NewTaskForm = () => {
     const initialState: FormState = {error: ""}
