@@ -36,7 +36,7 @@ const TaskDeleteButton: React.FC<TaskDeleteButtonProps> = ({ id }) => {
       )}
 
       {/* サーバーアクション呼び出し用のフォーム（非表示） */}
-      <form id={`delete-form-${id}`} action={async (formData) => {
+      <form id={`delete-form-${id}`} action={async () => {
       
         await deleteTask(id, {} as any);
       }} />
