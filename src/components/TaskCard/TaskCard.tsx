@@ -2,7 +2,8 @@
 
 import React from 'react'
 import TaskEditButton from './TaskEditButton/TaskEditButton'
-import TaskDeleteButton from './TaskDeleteButton/TaskDeleteButton'
+//import TaskDeleteButton from './TaskDeleteButton/TaskDeleteButton'
+import NewDeleteButton from './TaskDeleteButton/NewDeleteButton'
 import { Draggable } from "@hello-pangea/dnd";
 import { Task } from '@/types/task'
 
@@ -34,7 +35,8 @@ const TaskCard: React.FC<TaskCardProps> = ({ task, index }) => {
                     ${task.isCompleted ? 'bg-green-500' : 'bg-red-500'}  `}>{task.isCompleted ? 'Completed' : 'Incompleted'}</div>
                  <div className='flex gap-4'>
                      <TaskEditButton  id={task._id}/>
-                    <TaskDeleteButton  id={task._id}/>
+                     <NewDeleteButton id={task._id} />
+                    {/* <TaskDeleteButton  id={task._id}/> */}
                 </div>
             </div>
          </div>
