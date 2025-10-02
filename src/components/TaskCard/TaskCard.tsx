@@ -35,7 +35,7 @@ const TaskCard: React.FC<TaskCardProps> = ({ task, index }) => {
                     ${task.isCompleted ? 'bg-green-500' : 'bg-red-500'}  `}>{task.isCompleted ? 'Completed' : 'Incompleted'}</div>
                  <div className='flex gap-4'>
                      <TaskEditButton  id={task._id}/>
-                     <NewDeleteButton id={task._id} />
+                     <NewDeleteButton id={task._id} title={task.title} />
                     {/* <TaskDeleteButton  id={task._id}/> */}
                 </div>
             </div>
